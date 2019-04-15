@@ -2,7 +2,7 @@ Package: pts2polys
 Type: Package
 Title: Construct Polygons Summarising the Location and Variability of
         Point Sets
-Version: 0.1.0
+Version: 0.1.1
 Date: 2019-04-11
 Authors@R: c(person("Jonathan", "Keith", role = c("aut", "cre"),
                      email = "jonathan.keith@monash.edu"),
@@ -22,11 +22,11 @@ License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.1)
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2019-04-13 09:43:19 UTC; jkeith
+Packaged: 2019-04-15 07:27:06 UTC; jkeith
 Author: Jonathan Keith [aut, cre],
   Ken Clarkson [aut],
   Eric Hufschmid [ctb],
   AT&T [cph]
 Maintainer: Jonathan Keith <jonathan.keith@monash.edu>
 Repository: CRAN
-Date/Publication: 2019-04-14 11:02:40 UTC
+Date/Publication: 2019-04-15 08:02:38 UTC

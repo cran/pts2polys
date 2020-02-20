@@ -44,7 +44,7 @@ typedef struct basis_s {
 int ref_count;   /* storage management */
 int lscale;    /* the log base 2 of total scaling of vector */
 Coord sqa, sqb; /* sums of squared norms of a part and b part */
-Coord vecs[1]; /* the actual vectors, extended by malloc'ing bigger */
+Coord vecs[2*MAXDIM]; /* the actual vectors, extended by malloc'ing bigger */
 } basis_s;
 
 //STORAGE_GLOBALS(basis_s)
@@ -68,7 +68,7 @@ long visit;      /* number of last site visiting this simplex */
 short mark;
 basis_s* normal;   /* normal vector pointing inward */
 neighbor peak;      /* if null, remaining vertices give facet */
-neighbor neigh[1];   /* neighbors of simplex */
+neighbor neigh[MAXDIM];   /* neighbors of simplex */
 } simplex;
 // STORAGE_GLOBALS(simplex)
 extern size_t simplex_size;
@@ -1557,9 +1557,8 @@ int readsample(FILE *nestCoords,float *currentList)
   int numpts;
 
 
-  fgets(line,1000,nestCoords);
-  if(line[0] != 'P'){
-    Rcpp::stop("Input file not at start of point set in readsample.\n");
+  if(!fgets(line,1000,nestCoords) || line[0] != 'P'){
+    Rcpp::stop("Could not read input file in readsample.\n");
   }
 
   numpts = 0;
